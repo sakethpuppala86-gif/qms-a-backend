@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function StaffDashboard() {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  // ==========================================
+  // LOGOUT
+  // ==========================================
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/staff-login");
+  };
 
   // ==========================================
   // GET ALL QUEUE TICKETS
@@ -182,6 +193,14 @@ function StaffDashboard() {
           <a href="/staff">
             Staff Dashboard
           </a>
+
+          {/* LOGOUT BUTTON */}
+          <button
+            className="nav-link logout-button"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
 
         </nav>
 
