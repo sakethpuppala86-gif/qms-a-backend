@@ -9,7 +9,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://qms-a-frontend.vercel.app", allowCredentials = "true")
 public class AuthController {
 
     private final AuthService authService;
